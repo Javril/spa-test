@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { WeatherComponent } from './weather/weather.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'weather',
-    component: WeatherComponent
+    component: WeatherComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

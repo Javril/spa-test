@@ -14,4 +14,12 @@ export class UsersService {
   login = (user: IUser) => {
     return this.httpClient.post(`${this.url}/login`, user);
   }
+
+  loggedIn() {
+    return !!localStorage.getItem('token'); // Get boolean value
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
 }
