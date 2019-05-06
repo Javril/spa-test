@@ -10,13 +10,15 @@ import { LoginComponent } from './login/login.component';
 import { WeatherComponent } from './weather/weather.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { TokenInterceptorService } from './services/token/token-interceptor.service';
+import { AddWeatherComponent } from './weather/add-weather/add-weather.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     WeatherComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddWeatherComponent
   ],
   imports: [
     BrowserModule,
