@@ -11,7 +11,8 @@
                       type="text" 
                       formControlName="username" 
                       class="form-control" 
-                      [ngClass]="{ 'is-invalid': username.touched && username.invalid }" 
+                      [ngClass]="{ 'is-invalid': username.touched && username.invalid }"
+                      placeholder="Username"
                     />
                     <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
                         <div *ngIf="username.errors.required">Username is required</div>
@@ -23,7 +24,8 @@
                         type="password" 
                         formControlName="password" 
                         class="form-control" 
-                        [ngClass]="{ 'is-invalid': password.touched && password.invalid }" 
+                        [ngClass]="{ 'is-invalid': password.touched && password.invalid }"
+                        placeholder="Password"
                       />
                       <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
                           <div *ngIf="password.errors.required">Password is required</div>

@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const userRoutes = require('./routes/users');
+const weatherRoutes = require('./routes/weathers');
 
 const FakeDb = require('./models/user-fake-db');
 const config = require('./config');
@@ -22,12 +23,10 @@ mongoose.connect(config.database, { useNewUrlParser: true }, err => {
     } else {
         console.log('Database is connected');
     }
-}).then(() => {
-    const fakeDb = new FakeDb();
-    fakeDb.seedDb();
 });
 
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/weathers', weatherRoutes);
 
 app.listen(config.port, err => {
     console.log('The server is running on port ' + config.port);

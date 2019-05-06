@@ -1,0 +1,19 @@
+<form [formGroup]="temperatureForm" (ngSubmit)="onSubmit()">
+  <div *ngIf="temperature.touched && temperature.invalid" class="alert alert-danger">
+    <div *ngIf="temperature.errors.required">Temperature value is required</div>
+  </div>
+  <h3 *ngIf="errorMessage && isTemperatureSavedFailed" class="alert alert-danger">Temperature save failed</h3>
+  <h3 *ngIf="successMessage && isTemperatureSavedSuccess" class="alert alert-success">Temperature successful saved</h3>
+  <div class="form-inline">
+      <div class="form-group mx-sm-3 mb-2">
+        <input 
+          type="number" 
+          class="form-control"
+          formControlName="temperature"
+          [ngClass]="{ 'is-invalid': temperature.touched && temperature.invalid }"
+          placeholder="Temperature"
+        />
+      </div>
+      <button class="btn btn-primary mb-2" [disabled]="temperatureForm.invalid">Add Temperature</button>
+  </div>
+</form>
