@@ -11,7 +11,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { TokenInterceptorService } from './services/token/token-interceptor.service';
 import { AddWeatherComponent } from './weather/add-weather/add-weather.component';
-import { WeatherListComponent, NgbdSortableHeader } from './weather/weather-list/weather-list.component';
+import { WeatherListComponent } from './weather/weather-list/weather-list.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +20,7 @@ import { WeatherListComponent, NgbdSortableHeader } from './weather/weather-list
     WeatherComponent,
     NavbarComponent,
     AddWeatherComponent,
-    WeatherListComponent,
-    NgbdSortableHeader
+    WeatherListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { WeathersService } from 'src/app/services/weathers/weathers.service';
 
@@ -14,6 +14,7 @@ export class AddWeatherComponent implements OnInit {
   successMessage = '';
   errorMessage = '';
   temperatureForm: FormGroup;
+  @Output() updateTemperature = new EventEmitter<any>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,6 +39,7 @@ export class AddWeatherComponent implements OnInit {
           console.log(res);
           this.isTemperatureSavedSuccess = true;
           this.successMessage = 'Saved Successfully';
+          this.updateTemperature.emit();
           setTimeout(() => this.isTemperatureSavedSuccess = false, 2500);
         },
         err => {
