@@ -22,25 +22,23 @@ verifyToken = (req, res, next) => {
 
 router.post('/add', (req, res) => {
     const temperatureData = req.body.temperature;
-
-    const temperature = new Temperature({
+    const newTemperature = new Temperature({
         temperature: temperatureData,
-        createdAt: Date.now
+        createdAt: Date.now()
     });
-    temperature.save((err) => {
+    newTemperature.save((err) => {
         if (err) {
-            res.status(422).send({ error: [{ title: 'Temperature Error', detail: 'Could not find the Temperature' }] });
+            res.status(422).send({ error: [{ title: 'Temperature Error', detail: 'Could not be saved' }] });
         } else {
-            res.json('temperatureRegistered');
+            res.status(200).send(newTemperature);
         }
     });
 })
 
-
-router.get('', (res) => {
-    User.find({}, (err, foundTemperature) => {
+router.get('', (req, res) => {
+    Temperature.find({}, (err, foundTemperature) => {
         if (err) {
-            res.status(422).send({ error: [{ title: 'Temperature Error', detail: 'Could not find the Temperature' }] });
+            res.status(422).send({ error: [{ title: 'Temperature Error', detail: 'Could not find the Temperatures' }] });
         }
         res.status(200).send(foundTemperature);
     })

@@ -32,7 +32,7 @@ export class AddWeatherComponent implements OnInit {
 
   onSubmit() {
     console.log(this.temperatureForm.value);
-    this.weathersService.addWeather(this.temperatureForm.value)
+    this.weathersService.addTemperature(this.temperatureForm.value)
       .subscribe(
         res => {
           console.log(res);

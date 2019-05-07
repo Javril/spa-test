@@ -1,0 +1,20 @@
+<p>Temperature Log:</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col" sortable="name" (sort)="onSort($event)">Date</th>
+    <th scope="col" sortable="area" (sort)="onSort($event)">Temperature</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let temperature of temperatures">
+    <td>
+      {{ temperature?.createdAt | date:'medium' }}
+    </td>
+    <td>{{ temperature.temperature }}</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
